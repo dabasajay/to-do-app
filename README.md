@@ -16,8 +16,10 @@ A basic To-Do app built using React with TypeScript. Visit [https://dabasajay.gi
 
 ## 2. Features
 
-- 
+- View / Add / Update / Delete a todo.
+- Mark a todo as complete.
+- Todos are stored in local storage of browser so that one can access them even after browser refresh/restart.
 
-## 2. References
+## 3. References
 
 - 
