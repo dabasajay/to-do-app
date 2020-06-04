@@ -1,0 +1,10 @@
+.Dashboard {
+  margin: 10px 3em;
+  padding: 10px;
+  background-color: #0ABDA0;
+  color: white;
+  box-shadow: #0ABDA0 0px 0px 0px 1px, #0ABDA0 0px 0px 5px;
+  -webkit-box-shadow: #0ABDA0 0px 0px 0px 1px, #0ABDA0 0px 0px 5px;
+  -moz-box-shadow: #0ABDA0 0px 0px 0px 1px, #0ABDA0 0px 0px 5px;
+  min-height: 40rem;
+}
