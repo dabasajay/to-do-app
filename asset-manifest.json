@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/to-do-app/static/css/main.423dc29d.chunk.css",
-    "main.js": "/to-do-app/static/js/main.6d816d8b.chunk.js",
+    "main.css": "/to-do-app/static/css/main.feed4baf.chunk.css",
+    "main.js": "/to-do-app/static/js/main.e94d9f1a.chunk.js",
     "runtime-main.js": "/to-do-app/static/js/runtime-main.ed5e16c3.js",
-    "static/js/2.096e9021.chunk.js": "/to-do-app/static/js/2.096e9021.chunk.js",
+    "static/js/2.4191dc9f.chunk.js": "/to-do-app/static/js/2.4191dc9f.chunk.js",
     "index.html": "/to-do-app/index.html",
-    "precache-manifest.1b3e90e0bd3be0453b569a31474178ec.js": "/to-do-app/precache-manifest.1b3e90e0bd3be0453b569a31474178ec.js",
+    "precache-manifest.a936e650877cc9d681f775b00e886aa7.js": "/to-do-app/precache-manifest.a936e650877cc9d681f775b00e886aa7.js",
     "service-worker.js": "/to-do-app/service-worker.js",
-    "static/js/2.096e9021.chunk.js.LICENSE.txt": "/to-do-app/static/js/2.096e9021.chunk.js.LICENSE.txt"
+    "static/js/2.4191dc9f.chunk.js.LICENSE.txt": "/to-do-app/static/js/2.4191dc9f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.ed5e16c3.js",
-    "static/js/2.096e9021.chunk.js",
-    "static/css/main.423dc29d.chunk.css",
-    "static/js/main.6d816d8b.chunk.js"
+    "static/js/2.4191dc9f.chunk.js",
+    "static/css/main.feed4baf.chunk.css",
+    "static/js/main.e94d9f1a.chunk.js"
   ]
 }
