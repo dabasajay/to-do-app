@@ -1,0 +1,22 @@
+.btn {
+	color: white;
+	background-color: #BF9D7A;
+	border: none;
+	outline: none;
+	color: white;
+	padding: 10px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	cursor: pointer;
+	border-radius: 5px;
+	margin: 10px 0;
+	box-shadow: #BF9D7A 0px 0px 0px 1px, #BF9D7A 0px 0px 5px;
+	-webkit-box-shadow: #BF9D7A 0px 0px 0px 1px, #BF9D7A 0px 0px 5px;
+	-moz-box-shadow: #BF9D7A 0px 0px 0px 1px, #BF9D7A 0px 0px 5px;
+}
+
+.btn:focus {
+	border: none;
+	outline: none;
+}

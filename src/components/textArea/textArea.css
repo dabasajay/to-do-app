@@ -1,0 +1,10 @@
+.form-textarea {
+  resize: none;
+  outline: none;
+  border: none;
+  box-shadow: white 0px 0px 0px 1px, white 0px 0px 5px;
+  -webkit-box-shadow: white 0px 0px 0px 1px, white 0px 0px 5px;
+  -moz-box-shadow: white 0px 0px 0px 1px, white 0px 0px 5px;
+  border-radius: 5px;
+  overflow: auto;
+}

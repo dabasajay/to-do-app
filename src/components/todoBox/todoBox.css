@@ -1,0 +1,32 @@
+.to-do-box {
+	display: flex;
+	margin: 10px 0;
+}
+
+.to-do-box-textarea {
+  flex: 92%;
+}
+
+.to-do-box-options {
+  flex: 8%;
+}
+
+.icon-btn {
+	border: none;
+	display: block;
+	margin: 5px 0 10px 10px;
+	padding: 5px;
+	cursor: pointer;
+	border-radius: 5px;
+	min-width: 70px;
+}
+
+.icon-btn:focus {
+	border: none;
+	outline: none;
+}
+
+.icon-btn-text {
+	display: inline;
+	margin-right: 5px;
+}
