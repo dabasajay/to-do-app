@@ -21,6 +21,12 @@ A basic To-Do app built using React with TypeScript. Visit [https://dabasajay.gi
 3.  `npm start`
     Runs the webpack development server. It can be found at `localhost:3000`.
 
+4. `npm test`
+    Runs the tests using jest.
+
+5. `npm run build`
+    Generate a production build of the application.
+
 ## 2. Features
 
 - View / Add / Update / Delete a todo.
@@ -29,12 +35,8 @@ A basic To-Do app built using React with TypeScript. Visit [https://dabasajay.gi
 
 ## 3. Tools and technologies involved
 
-- HTML, CSS, Bootstrap
+- HTML, CSS
 - ReactJS, Reach Hooks
 - TypeScript, Javascript
 - Unstated-next for state management
 - Jest for testing
-
-## 4. References
-
-- 
