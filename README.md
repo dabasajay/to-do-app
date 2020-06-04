@@ -35,7 +35,7 @@ A basic To-Do app built using React with TypeScript. Visit [https://dabasajay.gi
 
 ## 3. Tools and technologies involved
 
-- HTML, CSS
+- HTML, CSS, FontAwesome
 - ReactJS, Reach Hooks
 - TypeScript, Javascript
 - Unstated-next for state management
@@ -47,3 +47,4 @@ A basic To-Do app built using React with TypeScript. Visit [https://dabasajay.gi
 - [Jest Docs](https://jestjs.io/docs/en/expect)
 - [React Docs](https://reactjs.org/docs/hooks-intro.html)
 - [Unstated-next Guide](https://github.com/jamiebuilds/unstated-next#guide)
+- [TypeScript and React by Stefan Baumgartner](https://fettblog.eu/typescript-react/)
