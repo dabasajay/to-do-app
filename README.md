@@ -39,4 +39,11 @@ A basic To-Do app built using React with TypeScript. Visit [https://dabasajay.gi
 - ReactJS, Reach Hooks
 - TypeScript, Javascript
 - Unstated-next for state management
-- Jest for testing
+- Jest with Enzyme for testing
+
+## 4. References
+
+- [Enzyme Docs](https://enzymejs.github.io/enzyme/docs/api/)
+- [Jest Docs](https://jestjs.io/docs/en/expect)
+- [React Docs](https://reactjs.org/docs/hooks-intro.html)
+- [Unstated-next Guide](https://github.com/jamiebuilds/unstated-next#guide)
