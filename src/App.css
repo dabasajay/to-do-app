@@ -1,3 +1,45 @@
 .App {
+  margin: 10px 3em;
+  padding: 10px;
+  background-color: #0ABDA0;
+  color: white;
+  /* color: #D4DCA9; */
+  box-shadow: #0ABDA0 0px 0px 0px 1px, #0ABDA0 0px 0px 5px;
+  -webkit-box-shadow: #0ABDA0 0px 0px 0px 1px, #0ABDA0 0px 0px 5px;
+  -moz-box-shadow: #0ABDA0 0px 0px 0px 1px, #0ABDA0 0px 0px 5px;
+  min-height: 40rem;
+}
+
+.form-textarea {
+  resize: none;
+  outline: none;
+  width: 80%;
+  border: none;
+  box-shadow: white 0px 0px 0px 1px, white 0px 0px 5px;
+  -webkit-box-shadow: white 0px 0px 0px 1px, white 0px 0px 5px;
+  -moz-box-shadow: white 0px 0px 0px 1px, white 0px 0px 5px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.btn {
+  color: white;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px;
   text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 10px 0;
+  box-shadow: #4CAF50 0px 0px 0px 1px, #4CAF50 0px 0px 5px;
+  -webkit-box-shadow: #4CAF50 0px 0px 0px 1px, #4CAF50 0px 0px 5px;
+  -moz-box-shadow: #4CAF50 0px 0px 0px 1px, #4CAF50 0px 0px 5px;
+}
+
+.hline {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }

@@ -1,10 +1,20 @@
-import React from 'react';
+import React from "react";
 import './App.css';
 
-function App() {
+const App = (props: Object) : JSX.Element => {
   return (
-    <div className="App">
-      Hello
+    <div className = 'App' data-test = 'component-app'>
+      <div>Add a Todo</div>
+      <hr className = 'hline'/>
+      <div style = {{textAlign: 'center'}}>
+        <form>
+          <textarea className = "form-textarea" placeholder = {'Let\'s do it...'} rows = {5}></textarea>
+          <br/>
+          <button type = "submit" className = "btn">Add</button>
+        </form>
+      </div>
+      <div>Todos</div>
+      <hr className = 'hline'/>
     </div>
   );
 }
