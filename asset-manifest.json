@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/to-do-app/static/css/main.7536480f.chunk.css",
-    "main.js": "/to-do-app/static/js/main.dbc1c310.chunk.js",
+    "main.css": "/to-do-app/static/css/main.31436091.chunk.css",
+    "main.js": "/to-do-app/static/js/main.a2740359.chunk.js",
     "runtime-main.js": "/to-do-app/static/js/runtime-main.ed5e16c3.js",
     "static/js/2.4191dc9f.chunk.js": "/to-do-app/static/js/2.4191dc9f.chunk.js",
     "index.html": "/to-do-app/index.html",
-    "precache-manifest.0e2782f7fba3fb9dbcc6d0782fce8f7d.js": "/to-do-app/precache-manifest.0e2782f7fba3fb9dbcc6d0782fce8f7d.js",
+    "precache-manifest.8544e31005a6a82311b177beae095199.js": "/to-do-app/precache-manifest.8544e31005a6a82311b177beae095199.js",
     "service-worker.js": "/to-do-app/service-worker.js",
     "static/js/2.4191dc9f.chunk.js.LICENSE.txt": "/to-do-app/static/js/2.4191dc9f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.ed5e16c3.js",
     "static/js/2.4191dc9f.chunk.js",
-    "static/css/main.7536480f.chunk.css",
-    "static/js/main.dbc1c310.chunk.js"
+    "static/css/main.31436091.chunk.css",
+    "static/js/main.a2740359.chunk.js"
   ]
 }
