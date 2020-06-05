@@ -9,6 +9,7 @@ from '../utilities/localStorageUtils';
 
 export type todoType = {
   id: number,
+  status: boolean, // true -> active, false -> marked complete
   text: string
 };
 
@@ -23,6 +24,7 @@ const useApplicationHook = () : {
   pushToDo: (todo : (string | string[])) => void,
   updateToDo: (todo: todoType) => void,
   popToDo: (id : number) => void,
+  switchStatus: (id : number) => void,
   populateStateFromLocalStorage: () => void
   isStateEmpty: () => boolean
 } => {
@@ -33,6 +35,18 @@ const useApplicationHook = () : {
   }
 
   const [state, setState] = useState(initialState);
+
+  const sortTodos = (arr : todoType[]) : void => {
+    arr.sort((a : todoType, b : todoType) : number => {
+      if(a.status === b.status){
+        return a.id - b.id; // Sort acc to id for same status
+      }
+      if(a.status)
+        return -1; // Put a first
+      else
+        return 1; // Put b first
+    })
+  }
 
   const setApplicationLoaded = () : void => {
     setState((prevState: applicationStateType) => {
@@ -52,12 +66,17 @@ const useApplicationHook = () : {
     newTodos.forEach(item => {
       processedTodos.push({
         id: baseID,
+        status: true,
         text: item
       });
       baseID++;
     });
 
     const updatedTodos : todoType[] = [...state.todos, ...processedTodos];
+
+    // Sort according to timestamp
+
+    sortTodos(updatedTodos);
 
     // Update in local storage
 
@@ -80,6 +99,8 @@ const useApplicationHook = () : {
     if(foundTodo){
 
       foundTodo.text = todo.text; // Update the todo
+
+      // Replace the updated todo in the list
 
       const updatedTodos : todoType[] = state.todos.map(
         (item : todoType) => item.id !== foundTodo.id ? item : foundTodo
@@ -113,6 +134,38 @@ const useApplicationHook = () : {
     });
   }
 
+  const switchStatus = (id: number) : void => {
+  
+    const foundTodo : (todoType | undefined) = state.todos.find(
+      (item : todoType) => item.id === id
+    );
+  
+    if(foundTodo){
+
+      foundTodo.status = !foundTodo.status; // toggle its status
+
+      // Replace the updated todo in the list
+
+      const updatedTodos : todoType[] = state.todos.map(
+        (item : todoType) => item.id !== foundTodo.id ? item : foundTodo
+      );
+
+      // Sort according to timestamp
+  
+      sortTodos(updatedTodos);
+
+      // Update in local storage
+  
+      saveTodosInLocalStorage(updatedTodos);
+  
+      // Update in application state
+ 
+      setState((prevState: applicationStateType) => {
+        return {...prevState, todos: updatedTodos};
+      });
+    }
+  }
+
   const populateStateFromLocalStorage = () : void => {
     const storedTodos : todoType[] = getTodosFromLocalStorage();
  
@@ -131,6 +184,7 @@ const useApplicationHook = () : {
     pushToDo,
     updateToDo,
     popToDo,
+    switchStatus,
     populateStateFromLocalStorage,
     isStateEmpty
   };
