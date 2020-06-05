@@ -15,12 +15,14 @@ export type todoType = {
 
 export type applicationStateType = {
   isLoaded: boolean,
+  loadingStatus: string,
   todos: todoType[]
 };
 
 const useApplicationHook = () : {
   state: applicationStateType,
   setApplicationLoaded: () => void,
+  setApplicationLoadingStatus: (status: string) => void,
   pushToDo: (todo : (string | string[])) => void,
   updateToDo: (todo: todoType) => void,
   popToDo: (id : number) => void,
@@ -31,6 +33,7 @@ const useApplicationHook = () : {
 
   const initialState : applicationStateType = {
     isLoaded: false,
+    loadingStatus: 'Loading data, please wait...',
     todos: []
   }
 
@@ -50,7 +53,13 @@ const useApplicationHook = () : {
 
   const setApplicationLoaded = () : void => {
     setState((prevState: applicationStateType) => {
-      return {...prevState, isLoaded: true};
+      return {...prevState, isLoaded: true, loadingStatus: ''};
+    });
+  }
+
+  const setApplicationLoadingStatus = (status: string) : void => {
+    setState((prevState: applicationStateType) => {
+      return {...prevState, loadingStatus: status};
     });
   }
 
@@ -180,6 +189,7 @@ const useApplicationHook = () : {
 
   return {
     state,
+    setApplicationLoadingStatus,
     setApplicationLoaded,
     pushToDo,
     updateToDo,

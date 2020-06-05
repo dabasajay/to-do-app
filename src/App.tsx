@@ -9,6 +9,7 @@ export const App = () : JSX.Element => {
 
   const {
     state: applicationState,
+    setApplicationLoadingStatus: setAppStatus,
     setApplicationLoaded,
     pushToDo,
     populateStateFromLocalStorage: populate,
@@ -27,12 +28,19 @@ export const App = () : JSX.Element => {
       await sleep(3000);
       // If it's still empty, fetch from Chuck Norris jokes API
       if(isStateEmpty()){
+        setAppStatus('Data not found. Loading some Chuck Norris jokes ;)');
         const initialTodos : string[] = [];
         for(let i = 1; i <= 3; i++){
-          const response = await fetch("https://api.chucknorris.io/jokes/random?category=dev");
-          const result = await response.json();
-          const { value } = result;
-          initialTodos.push(value);
+          try{
+            const response = await fetch("https://api.chucknorris.io/jokes/random?category=dev");
+            const result = await response.json();
+            const { value } = result;
+            initialTodos.push(value);
+          }catch(err){
+            console.log(err);
+            setAppStatus('Error occurred! Please check your connection.');
+            return;
+          }
         }
         pushToDo(initialTodos);
         // Wait 3 second to let hooks update app state
