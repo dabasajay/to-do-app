@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/to-do-app/static/css/main.7536480f.chunk.css",
-    "main.js": "/to-do-app/static/js/main.881552bf.chunk.js",
+    "main.js": "/to-do-app/static/js/main.dbc1c310.chunk.js",
     "runtime-main.js": "/to-do-app/static/js/runtime-main.ed5e16c3.js",
     "static/js/2.4191dc9f.chunk.js": "/to-do-app/static/js/2.4191dc9f.chunk.js",
     "index.html": "/to-do-app/index.html",
-    "precache-manifest.979d363b0f7546da85d74c1206b5742f.js": "/to-do-app/precache-manifest.979d363b0f7546da85d74c1206b5742f.js",
+    "precache-manifest.0e2782f7fba3fb9dbcc6d0782fce8f7d.js": "/to-do-app/precache-manifest.0e2782f7fba3fb9dbcc6d0782fce8f7d.js",
     "service-worker.js": "/to-do-app/service-worker.js",
     "static/js/2.4191dc9f.chunk.js.LICENSE.txt": "/to-do-app/static/js/2.4191dc9f.chunk.js.LICENSE.txt"
   },
@@ -13,6 +13,6 @@
     "static/js/runtime-main.ed5e16c3.js",
     "static/js/2.4191dc9f.chunk.js",
     "static/css/main.7536480f.chunk.css",
-    "static/js/main.881552bf.chunk.js"
+    "static/js/main.dbc1c310.chunk.js"
   ]
 }
