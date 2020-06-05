@@ -28,6 +28,9 @@ export const Writer = () : JSX.Element => {
     if(!todoText || todoText.length === 0)
       return;
 
+    // Reset textarea value
+    setState('');
+
     // Push to application state
     pushToDo(todoText);
   }

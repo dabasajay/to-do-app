@@ -21,7 +21,7 @@ export const TextArea = (props: TextAreaPropTypes) : JSX.Element => {
 			rows = {props.rows ? props.rows : 3}
 			onChange = {props.onChange}
 			readOnly = {props.readOnly ? props.readOnly : false}
-			value = {props.initialValue ? props.initialValue : undefined}
+			value = {props.initialValue ? props.initialValue : ''}
 			ref = {props.reference ? props.reference : null}
 		>
     </textarea>
