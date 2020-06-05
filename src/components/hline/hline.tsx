@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const HLine = () => {
+export const HLine = () : JSX.Element => {
   return (
     <hr
       style = {{

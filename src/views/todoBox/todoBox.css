@@ -1,0 +1,12 @@
+.to-do-box {
+	display: flex;
+	margin: 10px 0;
+}
+
+.to-do-box-textarea {
+  flex: 92%;
+}
+
+.to-do-box-options {
+  flex: 8%;
+}

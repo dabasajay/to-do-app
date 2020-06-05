@@ -1,6 +1,6 @@
 import React, { useState, SyntheticEvent } from "react";
 
-import { Button } from '../../components/button/button';
+import { Button } from '../../components/buttons/buttons';
 import { TextArea } from '../../components/textArea/textArea';
 
 import { ApplicationContainer } from '../../providers/application';
@@ -54,6 +54,15 @@ export const Writer = () : JSX.Element => {
           <Button
             type = 'submit'
             text = 'Add'
+            icon = 'fas fa-plus'
+            style = {{
+              color: 'white',
+              display: 'inline-block',
+              backgroundColor: '#DD7746',
+              boxShadow: '#DD7746 0px 0px 0px 1px, #DD7746 0px 0px 5px',
+              WebkitBoxShadow: '#DD7746 0px 0px 0px 1px, #DD7746 0px 0px 5px',
+              MozBoxShadow: '#DD7746 0px 0px 0px 1px, #DD7746 0px 0px 5px'
+            }}
           />
         </form>
       </div>

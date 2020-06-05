@@ -3,64 +3,15 @@ import './todoBox.css';
 
 import { ApplicationContainer, todoType } from '../../providers/application';
 
-import { TextArea } from '../textArea/textArea';
+import { Button } from '../../components/buttons/buttons';
+import { TextArea } from '../../components/textArea/textArea';
 
-type editSaveButtonPropTypes = {
-  editMode: boolean,
-  onClick: () => void
-};
-
-export const EditSaveButton = (props: editSaveButtonPropTypes) : JSX.Element => {
-  return (
-    <button
-      className = 'icon-btn'
-      onClick = {props.onClick}
-      style = {{
-        color: 'white',
-        backgroundColor: '#BF9D7A',
-        boxShadow: '#BF9D7A 0px 0px 0px 1px, #BF9D7A 0px 0px 5px',
-        WebkitBoxShadow: '#BF9D7A 0px 0px 0px 1px, #BF9D7A 0px 0px 5px',
-        MozBoxShadow: '#BF9D7A 0px 0px 0px 1px, #BF9D7A 0px 0px 5px'
-      }}
-    >
-      {
-        props.editMode
-        ?
-        <span><i className = 'far fa-save icon-btn-text'></i>Save</span>
-        :
-        <span><i className = 'far fa-edit icon-btn-text'></i>Edit</span>
-      }
-    </button>
-  );
-}
-
-type completeButtonPropTypes = {
-  onClick: () => void
-};
-
-export const CompleteButton = (props: completeButtonPropTypes) : JSX.Element => {
-  return (
-    <button
-      className = 'icon-btn'
-      onClick = {props.onClick}
-      style = {{
-        color: 'white',
-        backgroundColor: '#80ADD7',
-        boxShadow: '#80ADD7 0px 0px 0px 1px, #80ADD7 0px 0px 5px',
-        WebkitBoxShadow: '#80ADD7 0px 0px 0px 1px, #80ADD7 0px 0px 5px',
-        MozBoxShadow: '#80ADD7 0px 0px 0px 1px, #80ADD7 0px 0px 5px'
-      }}
-    >
-      <span><i className = 'fas fa-check icon-btn-text'></i>Done</span>
-    </button>
-  );
-}
-
-export const TodoBox = (props: todoType) => {
+export const TodoBox = (props: todoType) : JSX.Element => {
 
   const {
     updateToDo,
-    popToDo
+    popToDo,
+    switchStatus
   } = ApplicationContainer.useContainer();
 
   type stateType = {
@@ -72,24 +23,26 @@ export const TodoBox = (props: todoType) => {
     editMode: false, // false -> view mode, true -> editing mode
     todo: {
       id: props.id,
+      status: props.status,
       text: props.text
     }
   };
 
-  const textAreaRef = useRef<HTMLTextAreaElement>(null);
-
   const [state, setState] = useState(initialState);
+
+  const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
   const switchMod = () => {
     // If edit mode is on, change focus to text area element for editing
     if(!state.editMode && textAreaRef && textAreaRef.current){
       textAreaRef.current.focus();
+      // Bring cursor to end of text
       if (typeof textAreaRef.current.selectionStart === "number")
         textAreaRef.current.selectionStart 
           = textAreaRef.current.selectionEnd 
           = textAreaRef.current.value.length;
     }
-    // flip / switch mode
+    // toggle / switch mode
     setState({
       ...state,
       editMode: !state.editMode
@@ -103,11 +56,21 @@ export const TodoBox = (props: todoType) => {
     updateToDo(state.todo);
   }
 
+  const switchTodoStatus = () => {
+    switchStatus(state.todo.id);
+  }
+
   const deleteTodo = () => {
     popToDo(state.todo.id);
   }
 
-  const backgroundColor : string = state.editMode ? 'white' : '#4CAF50';
+  let backgroundColor : string = ''
+
+  if(state.todo.status){ // active todo
+    backgroundColor = state.editMode ? 'white' : '#005C42';
+  }else{ // completed todo 
+    backgroundColor = '#9EC97E';
+  }
 
   return (
     <div className = 'to-do-box'>
@@ -120,7 +83,7 @@ export const TodoBox = (props: todoType) => {
               padding: '10px',
               backgroundColor: backgroundColor,
               boxSizing: 'border-box',
-              minHeight: '80px',
+              minHeight: '100px',
               boxShadow: `${backgroundColor} 0px 0px 0px 1px, ${backgroundColor} 0px 0px 5px`,
               WebkitBoxShadow: `${backgroundColor} 0px 0px 0px 1px, ${backgroundColor} 0px 0px 5px`,
               MozBoxShadow: `${backgroundColor} 0px 0px 0px 1px, ${backgroundColor} 0px 0px 5px`,
@@ -139,12 +102,50 @@ export const TodoBox = (props: todoType) => {
         </div>
       </div>
       <div className = 'to-do-box-options'>
-        <EditSaveButton
-          editMode = {state.editMode}
-          onClick = {state.editMode ? saveTodo : switchMod}
+        {
+          state.todo.status // render edit/save button only for active todo
+          ?
+          <Button
+            type = 'button'
+            text = {state.editMode ? 'Save' : 'Edit'}
+            icon = {state.editMode ? 'far fa-save' : 'far fa-edit'}
+            onClick = {state.editMode ? saveTodo : switchMod}
+            style = {{
+              color: 'white',
+              backgroundColor: '#DD7746',
+              boxShadow: '#DD7746 0px 0px 0px 1px, #DD7746 0px 0px 5px',
+              WebkitBoxShadow: '#DD7746 0px 0px 0px 1px, #DD7746 0px 0px 5px',
+              MozBoxShadow: '#DD7746 0px 0px 0px 1px, #DD7746 0px 0px 5px'
+            }}
+          />
+          :
+          null
+        }
+        <Button
+          type = 'button'
+          text = {state.todo.status ? 'Mark' : 'Unmark'}
+          icon = {state.todo.status ? 'fas fa-check' : 'fas fa-times'}
+          onClick = {switchTodoStatus}
+          style = {{
+            color: 'white',
+            backgroundColor: '#44344E',
+            boxShadow: '#44344E 0px 0px 0px 1px, #44344E 0px 0px 5px',
+            WebkitBoxShadow: '#44344E 0px 0px 0px 1px, #44344E 0px 0px 5px',
+            MozBoxShadow: '#44344E 0px 0px 0px 1px, #44344E 0px 0px 5px'
+          }}
         />
-        <CompleteButton
+        <Button
+          type = 'button'
+          text = 'Remove'
+          icon = {'far fa-trash-alt'}
           onClick = {deleteTodo}
+          style = {{
+            color: 'white',
+            backgroundColor: '#821517',
+            boxShadow: '#821517 0px 0px 0px 1px, #821517 0px 0px 5px',
+            WebkitBoxShadow: '#821517 0px 0px 0px 1px, #821517 0px 0px 5px',
+            MozBoxShadow: '#821517 0px 0px 0px 1px, #821517 0px 0px 5px'
+          }}
         />
       </div>
     </div>

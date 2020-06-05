@@ -4,7 +4,7 @@ import { ApplicationContainer, todoType } from '../../providers/application';
 
 import { TodoBox } from '../todoBox/todoBox';
 
-export const Editor = () : JSX.Element => {
+export const Viewer = () : JSX.Element => {
 
   const {
     state: applicationState
@@ -14,7 +14,7 @@ export const Editor = () : JSX.Element => {
     <div>
       {
         applicationState.todos.map((item : todoType) : JSX.Element | null => {
-          if(item.status === true)
+          if(item.status === false)
             return <TodoBox
               key = {item.id}
               id = {item.id}
