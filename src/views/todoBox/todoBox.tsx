@@ -89,7 +89,7 @@ export const TodoBox = (props: todoType) : JSX.Element => {
               MozBoxShadow: `${backgroundColor} 0px 0px 0px 1px, ${backgroundColor} 0px 0px 5px`,
               cursor: state.editMode ? 'text' : 'auto'
             }}
-            placeholder = {'Empty todo doesn\'t make any sense, does it?'}
+            placeholder = {'Empty to-do doesn\'t make any sense, does it?'}
             initialValue = {state.todo.text}
             readOnly = {!state.editMode} // readOnly textarea if viewing mode is on
             onChange = {(e: any) => {
