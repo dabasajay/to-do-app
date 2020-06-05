@@ -29,9 +29,10 @@ A basic To-Do app built using React with TypeScript. Visit [https://dabasajay.gi
 
 ## 2. Features
 
-- View / Add / Update / Delete a todo.
-- Mark a todo as complete.
-- Todos are stored in local storage of browser so that one can access them even after browser refresh/restart.
+- View / Add / Edit / Remove a to-do.
+- Mark / Unmark a to-do as complete.
+- To-dos are stored in local storage of browser so that one can access them even after browser refresh/restart.
+- If data is not found in local storage, first 3 to-dos are fetched from Chuck Norris Jokes API. I hope you'll enjoy them ;)
 
 ## 3. Tools and technologies involved
 
