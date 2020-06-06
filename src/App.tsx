@@ -5,6 +5,11 @@ import { ApplicationContainer } from './providers/application';
 import Dashboard from './views/dashboard/dashboard';
 import LoadingSpinner from './views/spinner/spinner';
 
+// Utility function to mock execution pause
+export const sleep = (millisec: number) : Promise<void> => {
+  return new Promise(resolve => setTimeout(resolve, millisec));
+}
+
 export const App = () : JSX.Element => {
 
   const {
@@ -15,11 +20,6 @@ export const App = () : JSX.Element => {
     populateStateFromLocalStorage: populate,
     isStateEmpty
   } = ApplicationContainer.useContainer();
-
-  // Utility function to mock execution pause
-  const sleep = (millisec: number) : Promise<void> => {
-    return new Promise(resolve => setTimeout(resolve, millisec));
-  }
 
   // Once app is rendered initially, perform below stuff only once
   // Behaves like componentDidMount()
