@@ -23,6 +23,7 @@ export const TextArea = (props: TextAreaPropTypes) : JSX.Element => {
 			readOnly = {props.readOnly ? props.readOnly : false}
 			value = {props.initialValue ? props.initialValue : ''}
 			ref = {props.reference ? props.reference : null}
+			data-test = 'component-textarea'
 		>
     </textarea>
 	);
