@@ -13,4 +13,9 @@ Enzyme.configure({adapter: new EnzymeAdapter()});
 
 // Setup mock local storage
 
-Object.defineProperty(window, 'localStorage', { value: {} });
+Object.defineProperty(window, 'localStorage', {
+  value: {
+    getItem: (key: string) => {return null;},
+    setItem: (key: string, value: string) => {return;}
+  }
+});
