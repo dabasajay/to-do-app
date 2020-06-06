@@ -17,6 +17,7 @@ export const Button = (props: ButtonPropTypes) : JSX.Element => {
 			className = {`icon-btn ${props.className ? props.className : ''}`}
       onClick = {props.onClick}
 			style = {props.style ? props.style : {}}
+			data-test = 'component-button'
 		>
       <span><i className = {props.icon ? props.icon + ' icon-btn-text' : ''}></i>{props.text}</span>
 		</button>
