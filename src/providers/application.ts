@@ -19,7 +19,7 @@ export type applicationStateType = {
   todos: todoType[]
 };
 
-const useApplicationHook = () : {
+export const useApplicationHook = () : {
   state: applicationStateType,
   setApplicationLoaded: () => void,
   setApplicationLoadingStatus: (status: string) => void,
