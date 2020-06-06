@@ -21,8 +21,8 @@ A basic To-Do app built using React with TypeScript. Visit [https://dabasajay.gi
 3.  `npm start`
     Runs the webpack development server. It can be found at `localhost:3000`.
 
-4. `npm test`
-    Runs the tests using jest.
+4. `npm run testAll`
+    Run all the tests using jest with enzyme.
 
 5. `npm run build`
     Generate a production build of the application.
@@ -44,8 +44,8 @@ A basic To-Do app built using React with TypeScript. Visit [https://dabasajay.gi
 
 ## 4. References
 
-- [Enzyme Docs](https://enzymejs.github.io/enzyme/docs/api/)
-- [Jest Docs](https://jestjs.io/docs/en/expect)
 - [React Docs](https://reactjs.org/docs/hooks-intro.html)
 - [Unstated-next Guide](https://github.com/jamiebuilds/unstated-next#guide)
 - [TypeScript and React by Stefan Baumgartner](https://fettblog.eu/typescript-react/)
+- [Jest Docs](https://jestjs.io/docs/en/expect)
+- [Enzyme Docs](https://enzymejs.github.io/enzyme/docs/api/)
