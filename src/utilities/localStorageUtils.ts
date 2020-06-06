@@ -1,13 +1,13 @@
 import { todoType } from '../providers/application';
 
-const allFieldsPresent = (todo : todoType) : boolean => {
+export const allFieldsPresent = (todo : todoType) : boolean => {
   try{
-    const sampleObject : todoType = {
+    const sampleTodo : todoType = {
       id: 0,
       status: false,
       text: ''
     };
-    const sampleKeys : Array<string> = Object.keys(sampleObject).sort();
+    const sampleKeys : Array<string> = Object.keys(sampleTodo).sort();
     const actualKeys : Array<string> = Object.keys(todo).sort();
     return JSON.stringify(sampleKeys) === JSON.stringify(actualKeys);
   }catch(err){
