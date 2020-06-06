@@ -15,16 +15,16 @@ A basic To-Do app built using React with TypeScript. Visit [https://dabasajay.gi
 
 1.  Clone this repository
 
-2.  `npm install`
+2.  `npm install`<br>
     Install all the dependencies listed in `package.json`
 
-3.  `npm start`
+3.  `npm start`<br>
     Runs the webpack development server. It can be found at `localhost:3000`.
 
-4. `npm run testAll`
+4. `npm run testAll`<br>
     Run all the tests using jest with enzyme.
 
-5. `npm run build`
+5. `npm run build`<br>
     Generate a production build of the application.
 
 ## 2. Features
