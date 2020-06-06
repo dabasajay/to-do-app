@@ -8,9 +8,9 @@ import {
 from '../utilities/localStorageUtils';
 
 export type todoType = {
-  id: number,
-  status: boolean, // true -> active, false -> marked complete
-  text: string
+  id: number, // unique timestamp ID for each todo (can be from database also)
+  status: boolean, // true -> active todo, false -> completed todo
+  text: string // todo text
 };
 
 export type applicationStateType = {
@@ -39,30 +39,35 @@ const useApplicationHook = () : {
 
   const [state, setState] = useState(initialState);
 
+  // Sort todos according to increasing timestamp (date of creation)
+  // Active todos are placed before completed todos in the sorted array
   const sortTodos = (arr : todoType[]) : void => {
     arr.sort((a : todoType, b : todoType) : number => {
       if(a.status === b.status){
         return a.id - b.id; // Sort acc to id for same status
       }
-      if(a.status)
+      if(a.status) // a is active
         return -1; // Put a first
       else
         return 1; // Put b first
     })
   }
 
+  // Set the application status to loaded.
   const setApplicationLoaded = () : void => {
     setState((prevState: applicationStateType) => {
       return {...prevState, isLoaded: true, loadingStatus: ''};
     });
   }
 
+  // Set the application status text to show around spinner
   const setApplicationLoadingStatus = (status: string) : void => {
     setState((prevState: applicationStateType) => {
       return {...prevState, loadingStatus: status};
     });
   }
 
+  // Add a todo
   const pushToDo = (newTodos : (string | string[])) : void => {
 
     if(!Array.isArray(newTodos)) // Make it array for code compatibility
@@ -99,6 +104,7 @@ const useApplicationHook = () : {
 
   }
 
+  // Update a todo text
   const updateToDo = (todo: todoType) : void => {
   
     const foundTodo : (todoType | undefined) = state.todos.find(
@@ -127,6 +133,7 @@ const useApplicationHook = () : {
     }
   }
 
+  // Delete a todo
   const popToDo = (id: number) : void => {
     const filteredTodos : todoType[] = state.todos.filter(
       (item : todoType) => item.id !== id
@@ -143,6 +150,7 @@ const useApplicationHook = () : {
     });
   }
 
+  // Change a todo's status
   const switchStatus = (id: number) : void => {
   
     const foundTodo : (todoType | undefined) = state.todos.find(
@@ -175,6 +183,7 @@ const useApplicationHook = () : {
     }
   }
 
+  // Populate the state with data from local storage
   const populateStateFromLocalStorage = () : void => {
     const storedTodos : todoType[] = getTodosFromLocalStorage();
  
@@ -183,7 +192,9 @@ const useApplicationHook = () : {
     });
   }
 
+  // Check if the todo array is empty
   const isStateEmpty = () : boolean => {
+    // Check in local storage
     return !isFoundInLocalStorage();
   }
 

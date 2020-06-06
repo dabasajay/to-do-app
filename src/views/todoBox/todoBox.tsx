@@ -14,13 +14,14 @@ export const TodoBox = (props: todoType) : JSX.Element => {
     switchStatus
   } = ApplicationContainer.useContainer();
 
+  // State of a todo box
   type stateType = {
-    editMode: boolean,
-    todo: todoType
+    editMode: boolean, // true --> edit mode (writable textarea), false --> view mode
+    todo: todoType // the actual todo with its unique id, status, text, etc.
   };
 
   const initialState : stateType = {
-    editMode: false, // false -> view mode, true -> editing mode
+    editMode: false,
     todo: {
       id: props.id,
       status: props.status,
@@ -30,8 +31,10 @@ export const TodoBox = (props: todoType) : JSX.Element => {
 
   const [state, setState] = useState(initialState);
 
+  // A reference to textarea box.
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
+  // Switch the mode (view/edit) of textarea
   const switchMod = () => {
     // If edit mode is on, change focus to text area element for editing
     if(!state.editMode && textAreaRef && textAreaRef.current){
@@ -43,13 +46,14 @@ export const TodoBox = (props: todoType) : JSX.Element => {
           = textAreaRef.current.value.length;
     }
     // toggle / switch mode
-    setState({
-      ...state,
-      editMode: !state.editMode
+    setState((prevState) => {
+      return {...prevState, editMode: !prevState.editMode};
     });
   }
 
+  // Switch edit mode to view mode and save the changes
   const saveTodo = () => {
+    // For empty text, just return
     if(!state.todo.text || state.todo.text.length === 0)
       return;
     switchMod();

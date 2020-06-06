@@ -4,6 +4,8 @@ import { ApplicationContainer, todoType } from '../../providers/application';
 
 import { TodoBox } from '../todoBox/todoBox';
 
+// Viewer component renders all the completed todos with NO edit functionality
+
 export const Viewer = () : JSX.Element => {
 
   const {

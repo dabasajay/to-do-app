@@ -5,9 +5,10 @@ import { TextArea } from '../../components/textArea/textArea';
 
 import { ApplicationContainer } from '../../providers/application';
 
-export const Writer = () : JSX.Element => {
+// Writer component renders the form to take todo text input
+// and let's you add an active todo
 
-  // Main application state to push todos
+export const Writer = () : JSX.Element => {
 
   const {
     pushToDo
@@ -19,12 +20,14 @@ export const Writer = () : JSX.Element => {
 
   const [state, setState] = useState(intialState);
   
+  // Handle form submission
   const handleOnSubmit = (event: SyntheticEvent) : void => {
 
     event.preventDefault();
 
     const todoText : string = state;
 
+    // For empty input, just return
     if(!todoText || todoText.length === 0)
       return;
 

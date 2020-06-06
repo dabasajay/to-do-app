@@ -4,6 +4,8 @@ import { ApplicationContainer, todoType } from '../../providers/application';
 
 import { TodoBox } from '../todoBox/todoBox';
 
+// Editor component renders all the active todos with edit functionality
+
 export const Editor = () : JSX.Element => {
 
   const {

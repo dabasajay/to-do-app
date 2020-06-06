@@ -16,34 +16,44 @@ export const App = () : JSX.Element => {
     isStateEmpty
   } = ApplicationContainer.useContainer();
 
+  // Utility function to mock execution pause
   const sleep = (millisec: number) : Promise<void> => {
     return new Promise(resolve => setTimeout(resolve, millisec));
   }
 
+  // Once app is rendered initially, perform below stuff only once
+  // Behaves like componentDidMount()
   useEffect(() => {
     const work = async () => {
       // Upon loading app, populate todos data from local storage
       populate();
-      // Wait 3 second to let hooks update app state (if found)
+      // Wait 3 second to let hooks update app state (if local data is found)
       await sleep(3000);
-      // If it's still empty, fetch from Chuck Norris jokes API
+      // If it's still empty, fetch data from Chuck Norris jokes API
       if(isStateEmpty()){
+        // Update loading status
         setAppStatus('Data not found. Loading some Chuck Norris jokes ;)');
         const initialTodos : string[] = [];
-        for(let i = 1; i <= 3; i++){
+        const jokesCount = 3;
+        for(let i = 1; i <= jokesCount; i++){
           try{
-            const response = await fetch("https://api.chucknorris.io/jokes/random?category=dev");
+            const response = await fetch(
+              "https://api.chucknorris.io/jokes/random?category=dev"
+            );
             const result = await response.json();
             const { value } = result;
             initialTodos.push(value);
           }catch(err){
             console.log(err);
+            // Update loading status
             setAppStatus('Error occurred! Please check your connection.');
             return;
           }
         }
+        // Push todos to app state
         pushToDo(initialTodos);
         // Wait 3 second to let hooks update app state
+        // Don't need this much time but spinner looks pretty cool ;)
         await sleep(3000);
       }
       // Load application
@@ -70,6 +80,7 @@ type ProviderWrapperPropTypes = {
   children: JSX.Element
 };
 
+// Provider wrapper for unstated-next to work
 export const ProviderWrapper = (props : ProviderWrapperPropTypes) : JSX.Element => {
   return (
     <ApplicationContainer.Provider>

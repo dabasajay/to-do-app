@@ -3,6 +3,8 @@ import './spinner.css';
 
 import { ApplicationContainer } from '../../providers/application';
 
+// A loading spinner with application status text.
+
 const Spinner = () : JSX.Element => {
 
   const {
