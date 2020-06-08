@@ -4,6 +4,14 @@
 
 A basic To-Do app built using React with TypeScript. Visit [https://dabasajay.github.io/to-do-app](https://dabasajay.github.io/to-do-app) to access the application.
 
+<p align="center">
+  <strong>Application State Data Flow Diagram</strong>
+</p>
+
+<p align="center">
+  <img src="https://github.com/dabasajay/to-do-app/raw/source/app-state-data-flow.png" width="85%" alt="Application State Data Flow Diagram">
+</p>
+
 ## Table of Contents
 
 1. [Instructions to run the application](#1-instructions-to-run-the-application)
